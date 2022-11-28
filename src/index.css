@@ -5,5 +5,9 @@
 @layer base {
   html {
     font-family: 'Vazir', system-ui, sans-serif;
+    direction: rtl;
+  }
+  body {
+    height: 100vh;
   }
 }

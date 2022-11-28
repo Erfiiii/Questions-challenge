@@ -2,12 +2,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    backgroundColor: '#E5E5E5',
-    colors: {
-      'green': '#27AE60',
-      'green-light': '#66CB9F',
-      'red': '#F16063'
-    },
     fontSize: {
       'x-sm': ['10px', {
         lineHeight: '16px',
