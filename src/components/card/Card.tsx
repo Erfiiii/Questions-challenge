@@ -8,7 +8,7 @@ interface OwnProps {
     description: string;
     avatarUrl?: string;
     dateTime: Date;
-    actions: ReactElement;
+    actions?: ReactElement;
     additionalInfo?: ReactElement
 
 };
@@ -32,12 +32,12 @@ export function Card(props: Props) {
                     {props.additionalInfo ? props.additionalInfo : null}
                 </div>
             </div>
-            <div className='px-3 py-4'>
+            <div className='px-3 py-6'>
                 <p className='text-base'>{props.description}</p>
             </div>
-            <div className='flex flex-row-reverse p-3'>
+            {props.actions && <div className='flex flex-row-reverse p-3'>
                 {props.actions}
-            </div>
+            </div>}
         </div>
     )
 }
