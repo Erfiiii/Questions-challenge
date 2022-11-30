@@ -9,7 +9,7 @@ export type Question = {
     id: string;
     title: string;
     description: string
-    createdAt: string,
+    createdAt: Date,
     commentsCount: number
 }
 
@@ -17,7 +17,7 @@ export type Comment = {
     creator: User;
     id: string;
     title: string;
-    createdAt: string;
+    createdAt: Date;
     questionId: string;
     likes: number;
     dislikes: number;

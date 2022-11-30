@@ -8,7 +8,6 @@ export const getQuestions = async ()=> {
     } catch (error) {
         throw error
     }
-  
 }
 
 export const getQuestion = async (id: string)=> {
@@ -27,8 +26,8 @@ export const createQuestion = async (data:{title: string, description: string}) 
             title: data.title,
             description: data.description,
             commentsCount: 0,
-            id: Math.floor(Math. random() * 1000).toString(),
-            createdAt: (new Date()).toDateString(),
+            id: Math.floor(Math.random() * 1000).toString(),
+            createdAt: new Date(),
             creator: {
                 avatar: 'test',
                 id: '1',
@@ -36,9 +35,20 @@ export const createQuestion = async (data:{title: string, description: string}) 
             }
     
         } 
-        await axios.post('http://localhost:3004/questions', newQuestion)
+        const response = await axios.post('http://localhost:3004/questions', newQuestion)
+        return response.data
     } catch (error) {
         throw error
     }
 
+}
+
+export const updateQuestion = async (id: string, data: Partial<Question>) => {
+    try {
+        const headers = { "Content-Type": "application/json" }
+        const response = await axios.patch(`http://localhost:3004/questions/${id}`, data, { headers })
+        return response.data
+    } catch (error) {
+        throw error
+    }
 }
